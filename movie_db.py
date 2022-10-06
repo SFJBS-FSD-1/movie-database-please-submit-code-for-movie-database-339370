@@ -94,7 +94,7 @@ class AllMovies(Resource):
         for i in data:
             temp_dict = {'title': i.title, 'year': i.year, 'genre': i.genre}
             movielist.append(temp_dict)
-        return jsonify(movielist), {"status": HTTPStatus.OK}
+        return jsonify((movielist), {"status": HTTPStatus.OK})
 
 
 class OneMovie(Resource):
@@ -103,7 +103,7 @@ class OneMovie(Resource):
         print(data)
         if data:
             movie_dict = {"title": data.title, "year": data.year, "genre": data.genre}
-            return jsonify(movie_dict), {"status": HTTPStatus.OK}
+            return jsonify((movie_dict), {"status": HTTPStatus.OK})
         else:
             return {"message": "ID not found", "status": HTTPStatus.NOT_FOUND}
 
@@ -123,7 +123,7 @@ class OneMovie(Resource):
             movie_list = []
             for movie in data:
                 movie_list.append({"title": movie.title, "year": movie.year, "genre": movie.genre})
-            return jsonify(movie_list), {"status": HTTPStatus.OK}
+            return jsonify((movie_list), {"status": HTTPStatus.OK})
         else:
             return {"message": "ID not found", "status": HTTPStatus.NOT_FOUND}
 
